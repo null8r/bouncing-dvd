@@ -1,13 +1,11 @@
-html, body, main {
-  margin: 0;
-  padding: 0;
-}
-
 canvas {
-  padding: 10px;
   display: block;
 }
 
 #control {
   text-align: center;
+}
+
+.box {
+  padding-top: 30px;
 }/*# sourceMappingURL=style.css.map */

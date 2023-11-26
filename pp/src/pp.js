@@ -1,4 +1,10 @@
 let selFile = document.getElementById('selectFile');
+let selScale = document.getElementById('selectScale');
+let selSpeed = document.getElementById('selectSpeed');
+
+let scaleOp = document.getElementById('scaleOp');
+let speedOp = document.getElementById('speedOp');
+
 let dataUrl;
 
 let x;
@@ -18,11 +24,19 @@ let scale;
 let r, g, b;
 
 imgPath = 'src/img/syachiku.png';
-scale = 0.1;
+scale = 0.5;
 speed = 3;
 
+dataUrl = imgPath;
+
+window.onload = function(){
+  scaleOp.innerHTML = selScale.value;
+  speedOp.innerHTML = selSpeed.value;
+  twemoji.parse(document.body);
+}
+
 // input imageFile
-selFile.addEventListener("change", function(evt){
+selFile.addEventListener('change', function(evt){
   var file = evt.target.files;
   var reader = new FileReader();
 
@@ -32,14 +46,36 @@ selFile.addEventListener("change", function(evt){
     console.log('reader');
 
     dataUrl = reader.result;
+
+    main();
   }
-}, false);
+});
+
+// range scale
+selScale.addEventListener('input', function(){
+  scaleOp.innerHTML = selScale.value;
+  scale = selScale.value;
+  main();
+});
+
+// range speed
+selSpeed.addEventListener('input', function(){
+  speedOp.innerHTML = selSpeed.value;
+  speed = selSpeed.value;
+  main();
+});
 
 function main() {
   imgPath = dataUrl;
   preload();
   setup();
 }
+
+document.addEventListener('keydown', function(evt){
+  if(evt.key == 'Enter'){
+    main();
+  }
+});
 
 // canvas
 function preload() {
@@ -49,6 +85,7 @@ function preload() {
   imgSetup();
 }
 
+// img scale setup
 function imgSetup() {
   element = new Image();
 
@@ -67,6 +104,7 @@ function setup() {
 
   x = random(width);
   y = random(height);
+  speed = speed * 1;
   xSpeed = speed;
   ySpeed = speed;
 
