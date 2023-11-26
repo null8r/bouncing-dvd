@@ -20,7 +20,6 @@ let element;
 let imgWidth;
 let imgHeight;
 let scale;
-
 let r, g, b;
 
 imgPath = 'src/img/syachiku.png';
@@ -29,6 +28,7 @@ speed = 3;
 
 dataUrl = imgPath;
 
+// first setup
 window.onload = function(){
   scaleOp.innerHTML = selScale.value;
   speedOp.innerHTML = selSpeed.value;
@@ -65,17 +65,12 @@ selSpeed.addEventListener('input', function(){
   main();
 });
 
+// reset
 function main() {
   imgPath = dataUrl;
   preload();
   setup();
 }
-
-document.addEventListener('keydown', function(evt){
-  if(evt.key == 'Enter'){
-    main();
-  }
-});
 
 // canvas
 function preload() {

@@ -44,7 +44,7 @@
       </nav>
     </div>
 
-    <main>
+    <main onclick="pageBack();">
       <div id="canvas"></div>
 
       <div id="control">
@@ -52,17 +52,19 @@
           <p>画像を選択 (png、jpegのみ)</p>
           <input type="file" id="selectFile" accept="image/png, image/jpeg">
         </div>
+        <hr>
         <div class="box">
           <p>画像の大きさ(0.01~5)</p>
-          <span>元の画像サイズ * <span id="scaleOp"></span></span>
-          <input type="range" id="selectScale" min="0.01" max="5" step="0.01" value="0.5">
+          <span>元の画像サイズ * <span id="scaleOp"></span></span><br>
+          <input class="range" type="range" id="selectScale" min="0.01" max="5" step="0.05" value="0.5" width="100%">
         </div>
+        <hr>
         <div class="box">
           <p>画像の速さ(1~10)</p>
-          <span id="speedOp"></span>
-          <input type="range" id="selectSpeed" min="1" max="10" step="1" value="3">
+          <span id="speedOp"></span><br>
+          <input class="range" type="range" id="selectSpeed" min="1" max="10" step="1" value="3">
         </div>
-        <br>
+        <hr>
         <p>ウィンドウサイズを変更した場合、<a onclick="location.reload();" href="" title="Reload">再読込</a>が必要です。</p>
       </div>
     </main>
