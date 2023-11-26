@@ -18,6 +18,11 @@ imgPath = 'src/img/syachiku.png';
 scale = 0.5;
 speed = 3;
 
+window.addEventListener('resize', function(){
+  preload();
+  setup();
+});
+
 function preload() {
   img = loadImage(imgPath);
 

@@ -116,3 +116,32 @@ canvas {
 .range{
   width: 70%;
 }
+
+.field{
+  display: flex;
+}
+.button{
+  background-color: #fff;
+  font-size: 18px;
+  width: 60px;
+  text-align: center;
+
+  &.up{
+    color: #fff;
+    background: #008803;
+    border: solid 2px #008803;
+  }
+  &.down{
+    color: #fff;
+    background: #c9252f;
+    border: solid 2px #c9252f;
+  }
+}
+.inputText{
+  padding: 10px 0px;
+  width: 60px;
+  border-left: 0;
+  border-right: 0;
+  border: 1px solid #000;
+  text-align: center;
+}

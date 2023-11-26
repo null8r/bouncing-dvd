@@ -44,7 +44,7 @@
       </nav>
     </div>
 
-    <main onclick="pageBack();">
+    <main>
       <div id="canvas"></div>
 
       <div id="control">
@@ -56,16 +56,24 @@
         <div class="box">
           <p>画像の大きさ(0.01~5)</p>
           <span>元の画像サイズ * <span id="scaleOp"></span></span><br>
-          <input class="range" type="range" id="selectScale" min="0.01" max="5" step="0.05" value="0.5" width="100%">
+          <input class="range" type="range" id="selectScale" min="0.01" max="5" step="0.01" value="0.5" width="100%">
+          <div class="field">
+            <button class="button down" id="scaleDown">－</button>
+            <input type="number" class="inputText" id="textBoxScale" min="0.01" max="5" step="0.01" value="1">
+            <button class="button up" id="scaleUp">＋</button>
+          </div>
         </div>
         <hr>
         <div class="box">
           <p>画像の速さ(1~10)</p>
           <span id="speedOp"></span><br>
           <input class="range" type="range" id="selectSpeed" min="1" max="10" step="1" value="3">
+          <div class="field">
+            <button class="button down" id="speedDown">－</button>
+            <input type="text" class="inputText" id="textBoxSpeed" min="1" max="10" step="1" value="3">
+            <button class="button up" id="speedUp">＋</button>
+          </div>
         </div>
-        <hr>
-        <p>ウィンドウサイズを変更した場合、<a onclick="location.reload();" href="" title="Reload">再読込</a>が必要です。</p>
       </div>
     </main>
 
