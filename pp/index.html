@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="src/css/style.css" rel="stylesheet">
+
+    <title>Bouncing / Photo Picker</title>
+  </head>
+  <body>
+    <main>
+      <div id="canvas"></div>
+
+      <div id="control">
+        <button onclick="preload(); setup();">実行</button>
+        <p>画像を選択 (png、jpegのみ)</p>
+        <input type="file" id="selectFile" accept="image/png, image/jpeg">
+        <p>画像の大きさ</p><!-- 入力後にsetup()を再実行させる 画像の劣化を防ぐため  -->
+        <input type="range" id="selectScale" value="1" max="10" min="1">
+        <p>画像の速さ</p>
+        <input type="range" id="selectSpeed" value="1" max="10" min="1">
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.min.js"></script>
+    <script src="src/pp.js"></script>
+  </body>
+</html>
