@@ -1,5 +1,4 @@
 let selFile = document.getElementById('selectFile');
-
 let dataUrl;
 
 let x;
@@ -22,6 +21,7 @@ imgPath = 'src/img/syachiku.png';
 scale = 0.1;
 speed = 3;
 
+// input imageFile
 selFile.addEventListener("change", function(evt){
   var file = evt.target.files;
   var reader = new FileReader();
@@ -32,22 +32,16 @@ selFile.addEventListener("change", function(evt){
     console.log('reader');
 
     dataUrl = reader.result;
-    img = new Image();
-    img.src = dataUrl;
-
-    img.onload = function(){
-      console.log('dataUrl');
-
-      imgPath = dataUrl;
-      img = loadImage(imgPath);
-
-      preload();
-      setup();
-    }
   }
 }, false);
 
+function main() {
+  imgPath = dataUrl;
+  preload();
+  setup();
+}
 
+// canvas
 function preload() {
   img = loadImage(imgPath);
 
@@ -93,6 +87,7 @@ function draw() {
 
   tint(r, g, b);
   img.resize(imgWidth * scale, imgHeight * scale);
+  //img.resize(1754, 1240);
   image(img, x, y);
   
   x = x + xSpeed;
