@@ -80,7 +80,6 @@ scaleDown.addEventListener('click', function(){
     var num = Number(TBscale.value) * 10;
     inputScale = Math.round(num - 1) / 10;
     scaleSetup();
-    // selScale.addEventListener実行
   }
 });
 scaleUp.addEventListener('click', function(){
@@ -100,6 +99,11 @@ function scaleSetup(){
 
 // range speed
 selSpeed.addEventListener('input', function(){
+  speedSetup();
+});
+// input speed
+TBspeed.addEventListener('input', function(){
+  inputSpeed = TBspeed.value;
   speedSetup();
 });
 // button speed
