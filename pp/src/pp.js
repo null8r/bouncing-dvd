@@ -2,8 +2,19 @@ let selFile = document.getElementById('selectFile');
 let selScale = document.getElementById('selectScale');
 let selSpeed = document.getElementById('selectSpeed');
 
+let scaleDown = document.getElementById('scaleDown');
+let scaleUp = document.getElementById('scaleUp');
+let speedDown = document.getElementById('speedDown');
+let speedUp = document.getElementById('speedUp');
+
 let scaleOp = document.getElementById('scaleOp');
 let speedOp = document.getElementById('speedOp');
+
+let TBscale = document.getElementById('textBoxScale');
+let TBspeed = document.getElementById('textBoxSpeed');
+
+let inputScale;
+let inputSpeed;
 
 let dataUrl;
 
@@ -38,6 +49,7 @@ window.onload = function(){
 // input imageFile
 selFile.addEventListener('change', function(evt){
   var file = evt.target.files;
+  console.log(file.name);
   var reader = new FileReader();
 
   reader.readAsDataURL(file[0]);
@@ -52,16 +64,69 @@ selFile.addEventListener('change', function(evt){
 });
 
 // range scale
-selScale.addEventListener('input', function(){
-  scaleOp.innerHTML = selScale.value;
-  scale = selScale.value;
-  main();
+ selScale.addEventListener('input', function(){
+  inputScale = selScale.value;
+  scaleSetup();
 });
+// input scale
+TBscale.addEventListener('input', function(){
+  inputScale = TBscale.value;
+  scaleSetup();
+});
+// button scale
+// 誤差対策のため、数字を10倍(整数)にしてから計算して、小数に戻す
+scaleDown.addEventListener('click', function(){
+  if(TBscale.value > 0.1){
+    var num = Number(TBscale.value) * 10;
+    inputScale = Math.round(num - 1) / 10;
+    scaleSetup();
+    // selScale.addEventListener実行
+  }
+});
+scaleUp.addEventListener('click', function(){
+  if(TBscale.value < 5){
+    var num = Number(TBscale.value) * 10;
+    inputScale = Math.round(num + 1) / 10;
+    scaleSetup();
+  }
+});
+function scaleSetup(){
+  selScale.value = inputScale;
+  scaleOp.innerHTML = inputScale;
+  TBscale.value = inputScale;
+  scale = inputScale;
+  main();
+}
 
 // range speed
 selSpeed.addEventListener('input', function(){
-  speedOp.innerHTML = selSpeed.value;
-  speed = selSpeed.value;
+  speedSetup();
+});
+// button speed
+speedDown.addEventListener('click', function(){
+  if(TBspeed.value > 1){
+    var num = Number(TBspeed.value);
+    inputSpeed = num - 1;
+    speedSetup();
+  }
+});
+speedUp.addEventListener('click', function(){
+  if(TBspeed.value < 10){
+    var num = Number(TBspeed.value);
+    inputSpeed = num + 1;
+    speedSetup();
+  }
+});
+function speedSetup(){
+  selSpeed.value = inputSpeed;
+  speedOp.innerHTML = inputSpeed;
+  TBspeed.value = inputSpeed;
+  speed = inputSpeed;
+  main();
+}
+
+// resize
+window.addEventListener('resize', function(){
   main();
 });
 
@@ -90,7 +155,7 @@ function imgSetup() {
   }
   element.src = imgPath;
 
-  console.log("imgSetup \n" + imgWidth + "\n" + imgHeight);
+  console.log("imgSetup \nW=" + imgWidth + "\nH=" + imgHeight);
 }
 
 function setup() {
@@ -108,11 +173,11 @@ function setup() {
 }
 
 function pickColor() {
-  r = Math.floor(random(50, 256));
-  g = Math.floor(random(50, 256));
-  b = Math.floor(random(50, 256));
+  r = Math.floor(random(100, 256));
+  g = Math.floor(random(100, 256));
+  b = Math.floor(random(100, 256));
 
-  //console.log('rgb(' + r + ', ' + g + ', ' + b + ')');
+  console.log('rgb(' + r + ', ' + g + ', ' + b + ')');
 }
 
 function draw() {
@@ -120,7 +185,6 @@ function draw() {
 
   tint(r, g, b);
   img.resize(imgWidth * scale, imgHeight * scale);
-  //img.resize(1754, 1240);
   image(img, x, y);
   
   x = x + xSpeed;

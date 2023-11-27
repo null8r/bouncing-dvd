@@ -103,7 +103,7 @@ canvas {
   display: block;
 }
 #control{
-  width: 50%;
+  width: 90%;
   margin: 0 auto 0;
   text-align: center;
 }
@@ -113,6 +113,39 @@ canvas {
     margin-bottom: 10px;
   }
 }
+#selectFile{
+  //width: 100%;
+}
 .range{
   width: 70%;
+}
+
+.field{
+  display: flex;
+  justify-content: center;
+}
+.button{
+  background-color: #fff;
+  font-size: 18px;
+  width: 60px;
+  text-align: center;
+
+  &.up{
+    color: #fff;
+    background: #008803;
+    border: solid 2px #008803;
+  }
+  &.down{
+    color: #fff;
+    background: #c9252f;
+    border: solid 2px #c9252f;
+  }
+}
+.inputText{
+  padding: 10px 0px;
+  width: 60px;
+  border-left: 0;
+  border-right: 0;
+  border: 1px solid #000;
+  text-align: center;
 }
