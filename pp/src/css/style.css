@@ -112,7 +112,7 @@ canvas {
 }
 
 #control {
-  width: 50%;
+  width: 90%;
   margin: 0 auto 0;
   text-align: center;
 }
@@ -130,6 +130,7 @@ canvas {
 
 .field {
   display: flex;
+  justify-content: center;
 }
 
 .button {
