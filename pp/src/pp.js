@@ -13,8 +13,10 @@ let speedOp = document.getElementById('speedOp');
 let TBscale = document.getElementById('textBoxScale');
 let TBspeed = document.getElementById('textBoxSpeed');
 
-let inputScale;
-let inputSpeed;
+let shUrl = document.getElementById('shareUrl');
+
+let inputScale = 0.5;
+let inputSpeed = 3;
 
 let dataUrl;
 
@@ -27,7 +29,6 @@ let speed;
 
 let imgPath;
 let img;
-let element;
 let imgWidth;
 let imgHeight;
 let scale;
@@ -89,6 +90,7 @@ scaleUp.addEventListener('click', function(){
     scaleSetup();
   }
 });
+
 function scaleSetup(){
   selScale.value = inputScale;
   scaleOp.innerHTML = inputScale;
@@ -99,6 +101,7 @@ function scaleSetup(){
 
 // range speed
 selSpeed.addEventListener('input', function(){
+  inputSpeed = selSpeed.value;
   speedSetup();
 });
 // input speed
@@ -121,6 +124,7 @@ speedUp.addEventListener('click', function(){
     speedSetup();
   }
 });
+
 function speedSetup(){
   selSpeed.value = inputSpeed;
   speedOp.innerHTML = inputSpeed;
@@ -147,11 +151,12 @@ function preload() {
 
   console.log('preload');
   imgSetup();
+  //generateURL();
 }
 
 // img scale setup
 function imgSetup() {
-  element = new Image();
+  var element = new Image();
 
   element.onload = function () {
     imgWidth = element.naturalWidth ;
@@ -162,12 +167,21 @@ function imgSetup() {
   console.log("imgSetup \nW=" + imgWidth + "\nH=" + imgHeight);
 }
 
+// share url 負荷が大きい
+function generateURL() {
+  var urlImg = btoa(imgPath).replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
+  var url = urlImg;
+
+  shUrl.href = url;
+}
+
 function setup() {
   let canvas = createCanvas(windowWidth - 20, 500);
   canvas.parent('canvas');
 
   x = random(width);
   y = random(height);
+
   speed = speed * 1;
   xSpeed = speed;
   ySpeed = speed;
