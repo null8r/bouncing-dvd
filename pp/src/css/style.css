@@ -1,4 +1,5 @@
 html, body {
+  color: #fff;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -7,6 +8,11 @@ html, body {
   flex-direction: column;
   min-height: 100vh;
   font-family: "Noto Sans JP";
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html ::-webkit-scrollbar, body ::-webkit-scrollbar {
+  display: none;
 }
 
 body:after {
@@ -24,9 +30,6 @@ body:after {
 main {
   width: 100%;
   height: 100%;
-  padding: 10px;
-  padding-top: 60px;
-  padding-bottom: 150px;
 }
 
 #nojs {
@@ -78,6 +81,7 @@ img.emoji {
 .link {
   width: 16px;
   height: 16px;
+  filter: contrast(0%);
 }
 
 .glass-filter {
@@ -103,17 +107,59 @@ img.emoji {
   text-align: center;
 }
 
-hr {
-  margin: 0;
+.arrows {
+  width: 60px;
+  height: 72px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }
 
-canvas {
-  display: block;
+.arrows path {
+  stroke: #0de1bd;
+  fill: transparent;
+  stroke-width: 2px;
+  animation: arrow 5s infinite;
+  -webkit-animation: arrow 5s infinite;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.arrows path.a1 {
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s;
+}
+
+.arrows path.a2 {
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s;
+}
+
+.arrows path.a3 {
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
+
+hr {
+  margin: 0;
 }
 
 #control {
   width: 90%;
   margin: 0 auto 0;
+  color: #000;
   text-align: center;
 }
 
