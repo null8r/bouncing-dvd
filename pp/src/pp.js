@@ -34,7 +34,7 @@ let imgHeight;
 let scale;
 let r, g, b;
 
-imgPath = 'src/img/syachiku.png';
+imgPath = '../src/img/syachiku.png';
 scale = 0.5;
 speed = 3;
 
@@ -176,7 +176,7 @@ function generateURL() {
 }
 
 function setup() {
-  let canvas = createCanvas(windowWidth - 20, 500);
+  let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('canvas');
 
   x = random(width);
