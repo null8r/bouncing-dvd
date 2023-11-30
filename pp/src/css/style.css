@@ -107,51 +107,6 @@ img.emoji {
   text-align: center;
 }
 
-.arrows {
-  width: 60px;
-  height: 72px;
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
-}
-
-.arrows path {
-  stroke: #0de1bd;
-  fill: transparent;
-  stroke-width: 2px;
-  animation: arrow 5s infinite;
-  -webkit-animation: arrow 5s infinite;
-}
-
-@keyframes arrow {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.arrows path.a1 {
-  animation-delay: -1s;
-  -webkit-animation-delay: -1s;
-}
-
-.arrows path.a2 {
-  animation-delay: -0.5s;
-  -webkit-animation-delay: -0.5s;
-}
-
-.arrows path.a3 {
-  animation-delay: 0s;
-  -webkit-animation-delay: 0s;
-}
-
 hr {
   margin: 0;
 }
