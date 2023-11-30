@@ -58,6 +58,7 @@ footer {
   color: #000;
 }
 a {
+  cursor: pointer;
   text-decoration: none!important;
   transition: transform .2s;
   &:active{
