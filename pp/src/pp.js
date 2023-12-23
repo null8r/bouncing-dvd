@@ -229,3 +229,12 @@ function draw() {
   }
   console.log('draw');
 }
+
+//navbar
+$('.nav-item, .nav-link, .dropdown-item').click(function(){
+  if($(this).hasClass('dropdown-toggle')){
+  }
+  else{
+  $(".navbar-collapse").collapse('hide');
+  }
+});
